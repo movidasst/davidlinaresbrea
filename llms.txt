@@ -1,6 +1,6 @@
 # David Linares Brea
 
-> Perfil profesional de un líder de Learning & Development, Learning Operations y gestión del conocimiento con alcance en Latinoamérica.
+> Perfil profesional de un líder de Aprendizaje y Desarrollo, capacitación, Learning Operations y gestión del conocimiento con alcance en Latinoamérica.
 
 ## Perfil canónico
 
@@ -10,6 +10,10 @@
 
 ## Especialidades
 
+- Gerencia de Aprendizaje y Capacitación
+- Aprendizaje y Desarrollo
+- Desarrollo del Talento
+- Desarrollo Organizacional
 - Learning & Development
 - Learning Strategy and Governance
 - Learning Operations
