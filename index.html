@@ -45,7 +45,9 @@
     </script>
 
     <style>
-        body { background: #f7faf9; color: #334155; -webkit-font-smoothing: antialiased; }
+        body { background: #f7faf9; color: #334155; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        section[id] { scroll-margin-top: 76px; }
+        .tap-target { min-height: 44px; min-width: 44px; }
         .grid-bg {
             background-image:
                 linear-gradient(rgba(115, 215, 190, .07) 1px, transparent 1px),
@@ -75,6 +77,9 @@
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
         }
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            .mobile-action-bar { padding-bottom: max(.65rem, env(safe-area-inset-bottom)); }
+        }
     </style>
 
     <script type="application/ld+json">
@@ -102,11 +107,11 @@
     </script>
 </head>
 
-<body class="selection:bg-mint selection:text-ink">
+<body class="selection:bg-mint selection:text-ink pb-20 lg:pb-0">
     <a href="#contenido" class="sr-only focus:not-sr-only fixed top-3 left-3 z-[100] bg-white text-ink px-4 py-3 shadow-soft">Saltar al contenido</a>
 
     <nav id="navbar" class="nav-glass fixed inset-x-0 top-0 z-50 border-b border-slate-200/80" aria-label="Navegación principal">
-        <div class="max-w-7xl mx-auto px-5 lg:px-8 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 h-16 lg:h-20 flex items-center justify-between">
             <a href="#inicio" class="flex items-center gap-3 text-ink font-extrabold tracking-tight" aria-label="David Linares Brea, inicio">
                 <span class="w-10 h-10 rounded-xl bg-ink text-white grid place-items-center text-sm">DL</span>
                 <span>David Linares <span class="hidden sm:inline">Brea</span></span>
@@ -122,68 +127,68 @@
                 </a>
             </div>
 
-            <button id="menu-button" class="lg:hidden p-2 text-ink" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+            <button id="menu-button" class="tap-target lg:hidden p-2 text-ink" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
                 <i data-lucide="menu" class="w-7 h-7" aria-hidden="true"></i>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white px-5 py-5 shadow-soft">
-            <div class="flex flex-col gap-4 font-semibold text-ink">
-                <a href="#propuesta">Propuesta</a>
-                <a href="#capacidades">Capacidades</a>
-                <a href="#resultados">Resultados</a>
-                <a href="#movida">La Movida</a>
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 sm:px-5 py-4 shadow-soft">
+            <div class="flex flex-col gap-1 font-semibold text-ink">
+                <a href="#propuesta" class="tap-target flex items-center rounded-xl px-3 py-3 hover:bg-mist">Propuesta</a>
+                <a href="#capacidades" class="tap-target flex items-center rounded-xl px-3 py-3 hover:bg-mist">Capacidades</a>
+                <a href="#resultados" class="tap-target flex items-center rounded-xl px-3 py-3 hover:bg-mist">Resultados</a>
+                <a href="#movida" class="tap-target flex items-center rounded-xl px-3 py-3 hover:bg-mist">La Movida</a>
                 <a href="mailto:david.linaresb@gmail.com?subject=Oportunidad%20en%20Learning%20%26%20Development" class="rounded-xl bg-ocean px-5 py-3 text-center text-white">Conversemos</a>
             </div>
         </div>
     </nav>
 
     <main id="contenido">
-        <section id="inicio" class="relative overflow-hidden bg-ink pt-32 pb-16 lg:pt-44 lg:pb-24">
+        <section id="inicio" class="relative overflow-hidden bg-ink pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-44 lg:pb-24">
             <div class="absolute inset-0 grid-bg"></div>
             <div class="absolute -top-56 -right-32 h-[580px] w-[580px] rounded-full bg-ocean/25 blur-3xl"></div>
             <div class="absolute -bottom-64 left-1/3 h-[520px] w-[520px] rounded-full bg-mint/10 blur-3xl"></div>
 
-            <div class="relative max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-[1.2fr_.8fr] gap-12 items-center">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 grid lg:grid-cols-[1.2fr_.8fr] gap-10 lg:gap-12 items-center">
                 <div>
-                    <div class="inline-flex flex-wrap items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs sm:text-sm font-bold uppercase tracking-[.14em] text-mint">
+                    <div class="inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-[.68rem] sm:text-sm font-bold uppercase tracking-[.12em] sm:tracking-[.14em] text-mint">
                         Learning &amp; Development · Learning Operations
                     </div>
 
-                    <h1 class="mt-7 max-w-4xl text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-[-.04em] text-white">
+                    <h1 class="mt-6 sm:mt-7 max-w-4xl text-[2.35rem] min-[390px]:text-[2.65rem] sm:text-6xl lg:text-7xl font-extrabold leading-[1.04] tracking-[-.04em] text-white">
                         Lidero aprendizaje que convierte estrategia en <span class="gradient-text">capacidad organizacional.</span>
                     </h1>
 
-                    <p class="mt-7 max-w-2xl text-lg sm:text-xl leading-relaxed text-slate-300">
+                    <p class="mt-6 sm:mt-7 max-w-2xl text-base sm:text-xl leading-relaxed text-slate-300">
                         Líder de Learning &amp; Development con 25+ años de experiencia y 15+ años impulsando capacitación. Diseño operaciones, experiencias y ecosistemas de aprendizaje que conectan personas, tecnología y resultados de negocio.
                     </p>
 
-                    <div class="mt-8 flex flex-wrap gap-2 text-sm font-semibold text-slate-200">
-                        <span class="rounded-full border border-white/15 bg-white/5 px-4 py-2">Learning Strategy</span>
-                        <span class="rounded-full border border-white/15 bg-white/5 px-4 py-2">LMS &amp; e-learning</span>
-                        <span class="rounded-full border border-white/15 bg-white/5 px-4 py-2">Knowledge Management</span>
-                        <span class="rounded-full border border-white/15 bg-white/5 px-4 py-2">Talent Development</span>
+                    <div class="mt-7 sm:mt-8 flex flex-wrap gap-2 text-xs sm:text-sm font-semibold text-slate-200">
+                        <span class="rounded-full border border-white/15 bg-white/5 px-3 sm:px-4 py-2">Learning Strategy</span>
+                        <span class="rounded-full border border-white/15 bg-white/5 px-3 sm:px-4 py-2">LMS &amp; e-learning</span>
+                        <span class="rounded-full border border-white/15 bg-white/5 px-3 sm:px-4 py-2">Knowledge Management</span>
+                        <span class="rounded-full border border-white/15 bg-white/5 px-3 sm:px-4 py-2">Talent Development</span>
                     </div>
 
-                    <div class="mt-10 flex flex-col sm:flex-row gap-4">
-                        <a href="#resultados" class="inline-flex items-center justify-center gap-2 rounded-full bg-mint px-7 py-4 font-extrabold text-ink hover:bg-lime">
+                    <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <a href="#resultados" class="tap-target inline-flex items-center justify-center gap-2 rounded-full bg-mint px-7 py-3.5 sm:py-4 font-extrabold text-ink hover:bg-lime">
                             Ver resultados <i data-lucide="arrow-down" class="w-5 h-5" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/davidlinaresbrea/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-4 font-bold text-white hover:bg-white/10">
+                        <a href="https://www.linkedin.com/in/davidlinaresbrea/" target="_blank" rel="noopener noreferrer" class="tap-target inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 sm:py-4 font-bold text-white hover:bg-white/10">
                             <i data-lucide="linkedin" class="w-5 h-5" aria-hidden="true"></i> Perfil de LinkedIn
                         </a>
                     </div>
                 </div>
 
-                <div class="relative mx-auto w-full max-w-md">
+                <div class="relative mx-auto w-full max-w-[19rem] sm:max-w-md">
                     <div class="absolute -inset-5 rounded-[2.5rem] border border-mint/20 rotate-3"></div>
-                    <div class="relative overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl backdrop-blur-xl">
+                    <div class="relative overflow-hidden rounded-[1.75rem] sm:rounded-[2rem] border border-white/15 bg-white/10 p-2.5 sm:p-3 shadow-2xl backdrop-blur-xl">
                         <div class="aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-slate-800">
                             <img src="https://lh3.googleusercontent.com/d/11thygE-vajZ6uL7lMcLDLewEqU5QW8G0" alt="Retrato profesional de David Linares Brea" class="w-full h-full object-cover object-top" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=David+Linares+Brea&amp;background=007b85&amp;color=fff&amp;size=800';">
                         </div>
-                        <div class="absolute left-7 right-7 bottom-7 rounded-2xl border border-white/20 bg-ink/85 p-5 text-white backdrop-blur-lg">
+                        <div class="absolute left-5 right-5 bottom-5 sm:left-7 sm:right-7 sm:bottom-7 rounded-2xl border border-white/20 bg-ink/85 p-4 sm:p-5 text-white backdrop-blur-lg">
                             <p class="text-xs uppercase tracking-[.18em] text-mint font-bold">Perfil objetivo</p>
-                            <p class="mt-2 text-lg font-extrabold">Head / Manager of Learning &amp; Development</p>
+                            <p class="mt-2 text-base sm:text-lg font-extrabold">Head / Manager of Learning &amp; Development</p>
                             <p class="mt-1 text-sm text-slate-300">Chile · Latinoamérica · Entornos globales</p>
                         </div>
                     </div>
@@ -192,102 +197,102 @@
         </section>
 
         <section aria-label="Indicadores de impacto" class="relative -mt-1 bg-white border-b border-slate-200">
-            <div class="max-w-7xl mx-auto px-5 lg:px-8 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-slate-200">
-                <div class="px-4 py-8 lg:px-8">
-                    <p class="text-3xl lg:text-4xl font-extrabold text-ink">1.500+</p>
-                    <p class="mt-2 text-sm font-semibold text-slate-500">learners gestionados</p>
+            <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 grid grid-cols-2 lg:grid-cols-4">
+                <div class="border-r border-b lg:border-b-0 border-slate-200 px-3 py-6 sm:px-4 sm:py-8 lg:px-8">
+                    <p class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink">1.500+</p>
+                    <p class="mt-2 text-xs sm:text-sm font-semibold leading-snug text-slate-500">learners gestionados</p>
                 </div>
-                <div class="px-4 py-8 lg:px-8">
-                    <p class="text-3xl lg:text-4xl font-extrabold text-ocean">−30%</p>
-                    <p class="mt-2 text-sm font-semibold text-slate-500">tiempo de administración LMS</p>
+                <div class="border-b lg:border-r lg:border-b-0 border-slate-200 px-3 py-6 sm:px-4 sm:py-8 lg:px-8">
+                    <p class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ocean">−30%</p>
+                    <p class="mt-2 text-xs sm:text-sm font-semibold leading-snug text-slate-500">tiempo de administración LMS</p>
                 </div>
-                <div class="px-4 py-8 lg:px-8">
-                    <p class="text-3xl lg:text-4xl font-extrabold text-ink">33k+</p>
-                    <p class="mt-2 text-sm font-semibold text-slate-500">audiencia profesional</p>
+                <div class="border-r border-slate-200 px-3 py-6 sm:px-4 sm:py-8 lg:px-8">
+                    <p class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink">33k+</p>
+                    <p class="mt-2 text-xs sm:text-sm font-semibold leading-snug text-slate-500">audiencia profesional</p>
                 </div>
-                <div class="px-4 py-8 lg:px-8">
-                    <p class="text-3xl lg:text-4xl font-extrabold text-ocean">15+</p>
-                    <p class="mt-2 text-sm font-semibold text-slate-500">años liderando aprendizaje</p>
+                <div class="px-3 py-6 sm:px-4 sm:py-8 lg:px-8">
+                    <p class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ocean">15+</p>
+                    <p class="mt-2 text-xs sm:text-sm font-semibold leading-snug text-slate-500">años liderando aprendizaje</p>
                 </div>
             </div>
         </section>
 
-        <section id="propuesta" class="py-20 lg:py-28">
-            <div class="max-w-7xl mx-auto px-5 lg:px-8 grid lg:grid-cols-[.75fr_1.25fr] gap-12 lg:gap-20">
+        <section id="propuesta" class="py-16 sm:py-20 lg:py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 grid lg:grid-cols-[.75fr_1.25fr] gap-9 sm:gap-12 lg:gap-20">
                 <div>
                     <p class="section-label text-xs font-extrabold uppercase text-ocean">Propuesta de valor</p>
-                    <h2 class="mt-4 text-4xl lg:text-5xl font-extrabold tracking-[-.035em] text-ink">Del curso aislado al sistema de aprendizaje.</h2>
+                    <h2 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-.035em] text-ink">Del curso aislado al sistema de aprendizaje.</h2>
                 </div>
-                <div class="space-y-6 text-lg leading-relaxed text-slate-600">
+                <div class="space-y-5 sm:space-y-6 text-base sm:text-lg leading-relaxed text-slate-600">
                     <p>
                         Convierto necesidades de negocio en soluciones de aprendizaje escalables: gobierno, procesos, plataformas, contenidos, experiencia del usuario y medición. Mi foco está en que la formación sea fácil de operar, relevante para las personas y visible en sus resultados.
                     </p>
                     <p>
                         Combino visión de negocio, experiencia operativa y construcción de comunidades. Mi trayectoria en sectores regulados —aeronáutica, salud, telecomunicaciones y SST— aporta una ventaja concreta: sé transformar conocimiento complejo en desempeño aplicable.
                     </p>
-                    <div class="grid sm:grid-cols-3 gap-4 pt-3">
-                        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft"><span class="text-sm font-extrabold text-ink">Estrategia</span><p class="mt-2 text-sm text-slate-500">Prioridades, gobierno y hoja de ruta.</p></div>
-                        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft"><span class="text-sm font-extrabold text-ink">Operación</span><p class="mt-2 text-sm text-slate-500">Procesos, LMS y experiencia.</p></div>
-                        <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft"><span class="text-sm font-extrabold text-ink">Impacto</span><p class="mt-2 text-sm text-slate-500">Adopción, eficiencia y resultados.</p></div>
+                    <div class="grid min-[390px]:grid-cols-3 gap-3 sm:gap-4 pt-3">
+                        <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-soft"><span class="text-sm font-extrabold text-ink">Estrategia</span><p class="mt-2 text-xs sm:text-sm text-slate-500">Prioridades, gobierno y hoja de ruta.</p></div>
+                        <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-soft"><span class="text-sm font-extrabold text-ink">Operación</span><p class="mt-2 text-xs sm:text-sm text-slate-500">Procesos, LMS y experiencia.</p></div>
+                        <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-soft"><span class="text-sm font-extrabold text-ink">Impacto</span><p class="mt-2 text-xs sm:text-sm text-slate-500">Adopción, eficiencia y resultados.</p></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="capacidades" class="bg-mist py-20 lg:py-28 border-y border-slate-200">
-            <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <section id="capacidades" class="bg-mist py-16 sm:py-20 lg:py-28 border-y border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
                 <div class="max-w-3xl">
                     <p class="section-label text-xs font-extrabold uppercase text-ocean">Capacidades</p>
-                    <h2 class="mt-4 text-4xl lg:text-5xl font-extrabold tracking-[-.035em] text-ink">Lo que puedo liderar.</h2>
-                    <p class="mt-5 text-lg text-slate-600">Seis frentes para construir una función de aprendizaje conectada con la estrategia.</p>
+                    <h2 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-.035em] text-ink">Lo que puedo liderar.</h2>
+                    <p class="mt-5 text-base sm:text-lg text-slate-600">Seis frentes para construir una función de aprendizaje conectada con la estrategia.</p>
                 </div>
 
-                <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    <article class="skill-card rounded-3xl border border-slate-200 bg-white p-7 shadow-soft">
+                <div class="mt-9 sm:mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                    <article class="skill-card rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-soft">
                         <div class="w-12 h-12 rounded-2xl bg-ocean/10 text-ocean grid place-items-center"><i data-lucide="compass" aria-hidden="true"></i></div>
-                        <h3 class="mt-6 text-xl font-extrabold text-ink">Learning Strategy &amp; Governance</h3>
+                        <h3 class="mt-5 sm:mt-6 text-lg sm:text-xl font-extrabold text-ink">Learning Strategy &amp; Governance</h3>
                         <p class="mt-3 leading-relaxed text-slate-600">Diagnóstico, priorización, portafolio, políticas, proveedores y modelo operativo.</p>
                     </article>
-                    <article class="skill-card rounded-3xl border border-slate-200 bg-white p-7 shadow-soft">
+                    <article class="skill-card rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-soft">
                         <div class="w-12 h-12 rounded-2xl bg-ocean/10 text-ocean grid place-items-center"><i data-lucide="settings-2" aria-hidden="true"></i></div>
-                        <h3 class="mt-6 text-xl font-extrabold text-ink">Learning Operations</h3>
+                        <h3 class="mt-5 sm:mt-6 text-lg sm:text-xl font-extrabold text-ink">Learning Operations</h3>
                         <p class="mt-3 leading-relaxed text-slate-600">Administración del ciclo formativo, coordinación, soporte y mejora continua.</p>
                     </article>
-                    <article class="skill-card rounded-3xl border border-slate-200 bg-white p-7 shadow-soft">
+                    <article class="skill-card rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-soft">
                         <div class="w-12 h-12 rounded-2xl bg-ocean/10 text-ocean grid place-items-center"><i data-lucide="monitor-cog" aria-hidden="true"></i></div>
-                        <h3 class="mt-6 text-xl font-extrabold text-ink">LMS, e-learning &amp; LX</h3>
+                        <h3 class="mt-5 sm:mt-6 text-lg sm:text-xl font-extrabold text-ink">LMS, e-learning &amp; LX</h3>
                         <p class="mt-3 leading-relaxed text-slate-600">Moodle, experiencia del learner, automatización y contenidos digitales escalables.</p>
                     </article>
-                    <article class="skill-card rounded-3xl border border-slate-200 bg-white p-7 shadow-soft">
+                    <article class="skill-card rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-soft">
                         <div class="w-12 h-12 rounded-2xl bg-ocean/10 text-ocean grid place-items-center"><i data-lucide="network" aria-hidden="true"></i></div>
-                        <h3 class="mt-6 text-xl font-extrabold text-ink">Knowledge Management</h3>
+                        <h3 class="mt-5 sm:mt-6 text-lg sm:text-xl font-extrabold text-ink">Knowledge Management</h3>
                         <p class="mt-3 leading-relaxed text-slate-600">Comunidades de práctica, transferencia de conocimiento y aprendizaje colaborativo.</p>
                     </article>
-                    <article class="skill-card rounded-3xl border border-slate-200 bg-white p-7 shadow-soft">
+                    <article class="skill-card rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-soft">
                         <div class="w-12 h-12 rounded-2xl bg-ocean/10 text-ocean grid place-items-center"><i data-lucide="users-round" aria-hidden="true"></i></div>
-                        <h3 class="mt-6 text-xl font-extrabold text-ink">Talent &amp; Organizational Development</h3>
+                        <h3 class="mt-5 sm:mt-6 text-lg sm:text-xl font-extrabold text-ink">Talent &amp; Organizational Development</h3>
                         <p class="mt-3 leading-relaxed text-slate-600">Desarrollo de capacidades, liderazgo, cultura y alineación con desempeño.</p>
                     </article>
-                    <article class="skill-card rounded-3xl border border-slate-200 bg-white p-7 shadow-soft">
+                    <article class="skill-card rounded-3xl border border-slate-200 bg-white p-5 sm:p-7 shadow-soft">
                         <div class="w-12 h-12 rounded-2xl bg-ocean/10 text-ocean grid place-items-center"><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i></div>
-                        <h3 class="mt-6 text-xl font-extrabold text-ink">Learning Analytics</h3>
+                        <h3 class="mt-5 sm:mt-6 text-lg sm:text-xl font-extrabold text-ink">Learning Analytics</h3>
                         <p class="mt-3 leading-relaxed text-slate-600">Indicadores de adopción, eficiencia, participación e impacto para decidir mejor.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="resultados" class="py-20 lg:py-28 bg-white">
-            <div class="max-w-7xl mx-auto px-5 lg:px-8">
-                <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-14 lg:gap-24">
+        <section id="resultados" class="py-16 sm:py-20 lg:py-28 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
+                <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-10 sm:gap-14 lg:gap-24">
                     <div>
                         <p class="section-label text-xs font-extrabold uppercase text-ocean">Resultados seleccionados</p>
-                        <h2 class="mt-4 text-4xl lg:text-5xl font-extrabold tracking-[-.035em] text-ink">Evidencia de escala, eficiencia y adopción.</h2>
-                        <p class="mt-6 text-lg leading-relaxed text-slate-600">Experiencia regional combinando operación de aprendizaje, tecnología, facilitación y gestión del cambio.</p>
+                        <h2 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-.035em] text-ink">Evidencia de escala, eficiencia y adopción.</h2>
+                        <p class="mt-5 sm:mt-6 text-base sm:text-lg leading-relaxed text-slate-600">Experiencia regional combinando operación de aprendizaje, tecnología, facilitación y gestión del cambio.</p>
                     </div>
 
                     <div class="space-y-7">
-                        <article class="timeline-line relative pl-14">
+                        <article class="timeline-line relative pl-12 sm:pl-14">
                             <span class="absolute left-0 top-1 w-9 h-9 rounded-full bg-ink text-mint grid place-items-center"><i data-lucide="briefcase-business" class="w-4 h-4" aria-hidden="true"></i></span>
                             <p class="text-xs font-extrabold uppercase tracking-[.16em] text-ocean">2025 — Actualidad</p>
                             <h3 class="mt-2 text-xl font-extrabold text-ink">GP Strategies · Learning Administrator</h3>
@@ -295,28 +300,28 @@
                             <p class="mt-3 leading-relaxed text-slate-600">Gestión de servicios para 1.500+ learners y mejora de procesos que redujo en 20% los tiempos administrativos.</p>
                         </article>
 
-                        <article class="timeline-line relative pl-14">
+                        <article class="timeline-line relative pl-12 sm:pl-14">
                             <span class="absolute left-0 top-1 w-9 h-9 rounded-full bg-ocean text-white grid place-items-center"><i data-lucide="graduation-cap" class="w-4 h-4" aria-hidden="true"></i></span>
                             <p class="text-xs font-extrabold uppercase tracking-[.16em] text-ocean">Learning technology</p>
                             <h3 class="mt-2 text-xl font-extrabold text-ink">CELERIS · Proyectos para 5.000+ colaboradores</h3>
                             <p class="mt-3 leading-relaxed text-slate-600">Optimización de la administración de Moodle, con una reducción de 30% en tiempo operativo.</p>
                         </article>
 
-                        <article class="timeline-line relative pl-14">
+                        <article class="timeline-line relative pl-12 sm:pl-14">
                             <span class="absolute left-0 top-1 w-9 h-9 rounded-full bg-ocean text-white grid place-items-center"><i data-lucide="smartphone" class="w-4 h-4" aria-hidden="true"></i></span>
                             <p class="text-xs font-extrabold uppercase tracking-[.16em] text-ocean">Learning experience</p>
                             <h3 class="mt-2 text-xl font-extrabold text-ink">Konecta · Microlearning con mayor participación</h3>
                             <p class="mt-3 leading-relaxed text-slate-600">Diseño de experiencias breves y accionables que elevaron 15% la participación.</p>
                         </article>
 
-                        <article class="timeline-line relative pl-14">
+                        <article class="timeline-line relative pl-12 sm:pl-14">
                             <span class="absolute left-0 top-1 w-9 h-9 rounded-full bg-ocean text-white grid place-items-center"><i data-lucide="trending-up" class="w-4 h-4" aria-hidden="true"></i></span>
                             <p class="text-xs font-extrabold uppercase tracking-[.16em] text-ocean">Business enablement</p>
                             <h3 class="mt-2 text-xl font-extrabold text-ink">GDO · Aprendizaje conectado al negocio</h3>
                             <p class="mt-3 leading-relaxed text-slate-600">Iniciativas que acompañaron un crecimiento de 30% en ventas y una reducción de 20% en costos.</p>
                         </article>
 
-                        <article class="timeline-line relative pl-14">
+                        <article class="timeline-line relative pl-12 sm:pl-14">
                             <span class="absolute left-0 top-1 w-9 h-9 rounded-full bg-ocean text-white grid place-items-center"><i data-lucide="heart-pulse" class="w-4 h-4" aria-hidden="true"></i></span>
                             <p class="text-xs font-extrabold uppercase tracking-[.16em] text-ocean">Capability building</p>
                             <h3 class="mt-2 text-xl font-extrabold text-ink">Meditron · Desarrollo de 500+ profesionales de salud</h3>
@@ -327,46 +332,46 @@
             </div>
         </section>
 
-        <section id="movida" class="relative overflow-hidden bg-ink py-20 lg:py-28 text-white">
+        <section id="movida" class="relative overflow-hidden bg-ink py-16 sm:py-20 lg:py-28 text-white">
             <div class="absolute inset-0 grid-bg opacity-60"></div>
-            <div class="relative max-w-7xl mx-auto px-5 lg:px-8">
-                <div class="grid lg:grid-cols-[1.05fr_.95fr] gap-12 lg:gap-20 items-center">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
+                <div class="grid lg:grid-cols-[1.05fr_.95fr] gap-10 sm:gap-12 lg:gap-20 items-center">
                     <div>
                         <p class="section-label text-xs font-extrabold uppercase text-mint">Caso de liderazgo de aprendizaje</p>
-                        <h2 class="mt-4 text-4xl lg:text-6xl font-extrabold tracking-[-.04em]">La Movida: convertir conocimiento en comunidad.</h2>
-                        <p class="mt-6 text-lg leading-relaxed text-slate-300">
+                        <h2 class="mt-4 text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-[-.04em]">La Movida: convertir conocimiento en comunidad.</h2>
+                        <p class="mt-5 sm:mt-6 text-base sm:text-lg leading-relaxed text-slate-300">
                             Construí un ecosistema de aprendizaje colaborativo que conecta especialistas, contenido y conversaciones profesionales. La SST es el dominio técnico; el activo transferible es el modelo: curar conocimiento, movilizar participación y escalar aprendizaje entre pares.
                         </p>
-                        <a href="https://www.movidasst.com" target="_blank" rel="noopener noreferrer" class="mt-9 inline-flex items-center gap-2 rounded-full bg-mint px-7 py-4 font-extrabold text-ink hover:bg-lime">
+                        <a href="https://www.movidasst.com" target="_blank" rel="noopener noreferrer" class="tap-target mt-8 sm:mt-9 inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-mint px-7 py-3.5 sm:py-4 font-extrabold text-ink hover:bg-lime">
                             Conocer La Movida <i data-lucide="external-link" class="w-5 h-5" aria-hidden="true"></i>
                         </a>
                     </div>
 
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="rounded-3xl border border-white/15 bg-white/5 p-7 backdrop-blur"><p class="text-4xl font-extrabold text-mint">33k+</p><p class="mt-3 font-semibold text-slate-300">seguidores en LinkedIn</p></div>
-                        <div class="rounded-3xl border border-white/15 bg-white/5 p-7 backdrop-blur"><p class="text-4xl font-extrabold text-mint">1.700+</p><p class="mt-3 font-semibold text-slate-300">profesionales conectados</p></div>
-                        <div class="rounded-3xl border border-white/15 bg-white/5 p-7 backdrop-blur"><p class="text-4xl font-extrabold text-mint">23</p><p class="mt-3 font-semibold text-slate-300">estados de Venezuela representados</p></div>
-                        <div class="rounded-3xl border border-white/15 bg-white/5 p-7 backdrop-blur"><p class="text-4xl font-extrabold text-mint">LATAM</p><p class="mt-3 font-semibold text-slate-300">alcance y conversación regional</p></div>
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4">
+                        <div class="rounded-2xl sm:rounded-3xl border border-white/15 bg-white/5 p-4 sm:p-7 backdrop-blur"><p class="text-2xl sm:text-4xl font-extrabold text-mint">33k+</p><p class="mt-2 sm:mt-3 text-xs sm:text-base font-semibold text-slate-300">seguidores en LinkedIn</p></div>
+                        <div class="rounded-2xl sm:rounded-3xl border border-white/15 bg-white/5 p-4 sm:p-7 backdrop-blur"><p class="text-2xl sm:text-4xl font-extrabold text-mint">1.700+</p><p class="mt-2 sm:mt-3 text-xs sm:text-base font-semibold text-slate-300">profesionales conectados</p></div>
+                        <div class="rounded-2xl sm:rounded-3xl border border-white/15 bg-white/5 p-4 sm:p-7 backdrop-blur"><p class="text-2xl sm:text-4xl font-extrabold text-mint">23</p><p class="mt-2 sm:mt-3 text-xs sm:text-base font-semibold text-slate-300">estados representados</p></div>
+                        <div class="rounded-2xl sm:rounded-3xl border border-white/15 bg-white/5 p-4 sm:p-7 backdrop-blur"><p class="text-2xl sm:text-4xl font-extrabold text-mint">LATAM</p><p class="mt-2 sm:mt-3 text-xs sm:text-base font-semibold text-slate-300">alcance regional</p></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-20 lg:py-28">
-            <div class="max-w-5xl mx-auto px-5 lg:px-8 text-center">
+        <section class="py-16 sm:py-20 lg:py-28">
+            <div class="max-w-5xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
                 <p class="section-label text-xs font-extrabold uppercase text-ocean">Próximo desafío</p>
-                <h2 class="mt-4 text-4xl lg:text-6xl font-extrabold tracking-[-.04em] text-ink">Busco liderar la evolución del aprendizaje en una organización con ambición de crecer.</h2>
-                <p class="mt-6 mx-auto max-w-3xl text-lg leading-relaxed text-slate-600">Disponible para posiciones de Head, Manager, Jefe o Gerente de Learning &amp; Development, Capacitación, Learning Operations, Gestión del Conocimiento o Desarrollo Organizacional.</p>
-                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="mailto:david.linaresb@gmail.com?subject=Oportunidad%20en%20Learning%20%26%20Development" class="inline-flex items-center justify-center gap-2 rounded-full bg-ocean px-8 py-4 font-extrabold text-white hover:bg-ink"><i data-lucide="mail" class="w-5 h-5" aria-hidden="true"></i> david.linaresb@gmail.com</a>
-                    <a href="https://www.linkedin.com/in/davidlinaresbrea/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-8 py-4 font-extrabold text-ink hover:border-ocean"><i data-lucide="linkedin" class="w-5 h-5" aria-hidden="true"></i> Contactar en LinkedIn</a>
+                <h2 class="mt-4 text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-[-.04em] text-ink">Busco liderar la evolución del aprendizaje en una organización con ambición de crecer.</h2>
+                <p class="mt-5 sm:mt-6 mx-auto max-w-3xl text-base sm:text-lg leading-relaxed text-slate-600">Disponible para posiciones de Head, Manager, Jefe o Gerente de Learning &amp; Development, Capacitación, Learning Operations, Gestión del Conocimiento o Desarrollo Organizacional.</p>
+                <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+                    <a href="mailto:david.linaresb@gmail.com?subject=Oportunidad%20en%20Learning%20%26%20Development" class="tap-target inline-flex items-center justify-center gap-2 rounded-full bg-ocean px-7 sm:px-8 py-3.5 sm:py-4 font-extrabold text-white hover:bg-ink"><i data-lucide="mail" class="w-5 h-5" aria-hidden="true"></i> Escribirme por email</a>
+                    <a href="https://www.linkedin.com/in/davidlinaresbrea/" target="_blank" rel="noopener noreferrer" class="tap-target inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-7 sm:px-8 py-3.5 sm:py-4 font-extrabold text-ink hover:border-ocean"><i data-lucide="linkedin" class="w-5 h-5" aria-hidden="true"></i> Contactar en LinkedIn</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="border-t border-slate-200 bg-white py-10">
-        <div class="max-w-7xl mx-auto px-5 lg:px-8 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+    <footer class="border-t border-slate-200 bg-white py-8 sm:py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 flex flex-col md:flex-row gap-5 sm:gap-6 items-start md:items-center justify-between">
             <div>
                 <p class="font-extrabold text-ink">David Linares Brea</p>
                 <p class="mt-1 text-sm text-slate-500">Learning &amp; Development · Learning Operations · Knowledge Management</p>
@@ -379,6 +384,15 @@
             <p class="text-sm text-slate-400">© 2026</p>
         </div>
     </footer>
+
+    <aside class="mobile-action-bar fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2 border-t border-slate-200 bg-white/95 px-3 pt-2.5 pb-2.5 shadow-[0_-12px_35px_-20px_rgba(7,26,43,.45)] backdrop-blur-xl lg:hidden" aria-label="Acciones de contacto">
+        <a href="mailto:david.linaresb@gmail.com?subject=Oportunidad%20en%20Learning%20%26%20Development" class="tap-target inline-flex items-center justify-center gap-2 rounded-xl bg-ocean px-4 py-3 text-sm font-extrabold text-white">
+            <i data-lucide="mail" class="w-4 h-4" aria-hidden="true"></i> Email
+        </a>
+        <a href="https://www.linkedin.com/in/davidlinaresbrea/" target="_blank" rel="noopener noreferrer" class="tap-target inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-extrabold text-ink">
+            <i data-lucide="linkedin" class="w-4 h-4" aria-hidden="true"></i> LinkedIn
+        </a>
+    </aside>
 
     <script>
         lucide.createIcons();
