@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://davidlinares.movidasst.com/sitemap.xml
+

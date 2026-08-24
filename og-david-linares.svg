@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#007B85" stop-opacity=".82"/>
+      <stop offset="1" stop-color="#73D7BE" stop-opacity=".14"/>
+    </linearGradient>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#73D7BE" stroke-opacity=".08"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#071A2B"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="1060" cy="90" r="330" fill="url(#glow)" opacity=".68"/>
+  <circle cx="1085" cy="515" r="220" fill="#B7DC6D" opacity=".08"/>
+  <rect x="72" y="65" width="82" height="82" rx="22" fill="#007B85"/>
+  <text x="113" y="118" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="31" font-weight="800" fill="#FFFFFF">DL</text>
+  <text x="180" y="98" font-family="Manrope, Arial, sans-serif" font-size="31" font-weight="800" fill="#FFFFFF">David Linares Brea</text>
+  <text x="180" y="132" font-family="Manrope, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.2" fill="#73D7BE">LEARNING &amp; DEVELOPMENT LEADER</text>
+  <text x="72" y="250" font-family="Manrope, Arial, sans-serif" font-size="61" font-weight="800" letter-spacing="-2" fill="#FFFFFF">Aprendizaje que convierte</text>
+  <text x="72" y="322" font-family="Manrope, Arial, sans-serif" font-size="61" font-weight="800" letter-spacing="-2" fill="#FFFFFF">estrategia en <tspan fill="#73D7BE">capacidad.</tspan></text>
+  <text x="74" y="382" font-family="Manrope, Arial, sans-serif" font-size="23" font-weight="500" fill="#CBD5E1">Learning Operations · LMS &amp; e-learning · Knowledge Management</text>
+  <g transform="translate(72 445)">
+    <rect width="250" height="92" rx="22" fill="#FFFFFF" fill-opacity=".07" stroke="#FFFFFF" stroke-opacity=".14"/>
+    <text x="24" y="41" font-family="Manrope, Arial, sans-serif" font-size="29" font-weight="800" fill="#B7DC6D">25+ años</text>
+    <text x="24" y="68" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="600" fill="#CBD5E1">experiencia profesional</text>
+  </g>
+  <g transform="translate(340 445)">
+    <rect width="250" height="92" rx="22" fill="#FFFFFF" fill-opacity=".07" stroke="#FFFFFF" stroke-opacity=".14"/>
+    <text x="24" y="41" font-family="Manrope, Arial, sans-serif" font-size="29" font-weight="800" fill="#B7DC6D">1.500+</text>
+    <text x="24" y="68" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="600" fill="#CBD5E1">learners gestionados</text>
+  </g>
+  <g transform="translate(608 445)">
+    <rect width="250" height="92" rx="22" fill="#FFFFFF" fill-opacity=".07" stroke="#FFFFFF" stroke-opacity=".14"/>
+    <text x="24" y="41" font-family="Manrope, Arial, sans-serif" font-size="29" font-weight="800" fill="#B7DC6D">33k+</text>
+    <text x="24" y="68" font-family="Manrope, Arial, sans-serif" font-size="15" font-weight="600" fill="#CBD5E1">audiencia profesional</text>
+  </g>
+  <text x="72" y="591" font-family="Manrope, Arial, sans-serif" font-size="17" font-weight="700" fill="#73D7BE">davidlinares.movidasst.com</text>
+</svg>
