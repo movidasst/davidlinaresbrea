@@ -555,6 +555,59 @@
                 mobileMenu.classList.toggle('hidden');
             });
 
+            const sections = ['inicio','experiencia','mentoria','academia','movida'];
+            const targets = {inicio:'inicio',propuesta:'inicio',capacidades:'experiencia',resultados:'experiencia',contacto:'experiencia',mentoria:'mentoria',academia:'academia',movida:'movida'};
+            const tabButtons = [...document.querySelectorAll('.profile-bottom-nav [data-tab]')];
+            const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+            function activateProfile(target) {
+                const name = sections.includes(target) ? target : (targets[target] || 'inicio');
+                document.querySelectorAll('[data-profile-tab]').forEach(node => {
+                    node.hidden = node.dataset.profileTab !== name;
+                });
+                tabButtons.forEach(button => {
+                    const selected = button.dataset.tab === name;
+                    button.setAttribute('aria-selected', String(selected));
+                    button.tabIndex = selected ? 0 : -1;
+                });
+                if (targets[target] && target !== name) {
+                    requestAnimationFrame(() => document.getElementById(target)?.scrollIntoView({behavior:'auto',block:'start'}));
+                } else {
+                    window.scrollTo({top:0,behavior:reducedMotion?'auto':'instant'});
+                }
+            }
+            function applyProfileLocation() {
+                const target = decodeURIComponent(location.hash.slice(1) || 'inicio');
+                activateProfile(target);
+            }
+            document.addEventListener('click', event => {
+                const button = event.target.closest('.profile-bottom-nav [data-tab]');
+                if (button) {
+                    event.preventDefault();
+                    const target = button.dataset.tab;
+                    if (location.hash !== '#' + target) history.pushState(null,'','#' + target);
+                    activateProfile(target);
+                    return;
+                }
+                const a = event.target.closest('a[href^="#"]');
+                if (!a || a.getAttribute('href') === '#contenido') return;
+                const target = a.getAttribute('href').substring(1);
+                if (!sections.includes(target) && !targets[target]) return;
+                event.preventDefault();
+                if (location.hash !== '#' + target) history.pushState(null,'','#' + target);
+                activateProfile(target);
+            });
+            document.querySelector('.profile-bottom-nav').addEventListener('keydown', event => {
+                if (!['ArrowRight','ArrowLeft','Home','End'].includes(event.key)) return;
+                event.preventDefault();
+                const current = tabButtons.indexOf(document.activeElement);
+                const next = event.key === 'Home' ? 0 : event.key === 'End' ? sections.length-1 : (current+(event.key === 'ArrowRight'?1:-1)+sections.length)%sections.length;
+                tabButtons[next].focus();
+                tabButtons[next].click();
+            });
+            addEventListener('hashchange', applyProfileLocation);
+            addEventListener('popstate', applyProfileLocation);
+            applyProfileLocation();
+
             mobileMenu.querySelectorAll('a').forEach((link) => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
