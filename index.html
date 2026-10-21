@@ -507,7 +507,7 @@
 
                     <div class="grid grid-cols-2 gap-3 sm:gap-4">
                         <div class="rounded-2xl sm:rounded-3xl border border-white/15 bg-white/5 p-4 sm:p-7 backdrop-blur"><p class="text-2xl sm:text-4xl font-extrabold text-mint">33k+</p><p class="mt-2 sm:mt-3 text-xs sm:text-base font-semibold text-slate-300">seguidores en LinkedIn</p></div>
-                        <div class="rounded-2xl sm:rounded-3xl border border-white/15 bg-white/5 p-4 sm:p-7 backdrop-blur"><p class="text-2xl sm:text-4xl font-extrabold text-mint">1.700+</p><p class="mt-2 sm:mt-3 text-xs sm:text-base font-semibold text-slate-300">profesionales conectados</p></div>
+                        <div class="rounded-2xl sm:rounded-3xl border border-white/15 bg-white/5 p-4 sm:p-7 backdrop-blur"><p id="contador-integrantes-movida" class="text-2xl sm:text-4xl font-extrabold text-mint tabular-nums" aria-live="polite" aria-label="Más de dos mil integrantes registrados" title="Cifra conectada al registro oficial de La Movida de SST+">2.000+</p><p class="mt-2 sm:mt-3 text-xs sm:text-base font-semibold text-slate-300">integrantes registrados</p></div>
                         <div class="rounded-2xl sm:rounded-3xl border border-white/15 bg-white/5 p-4 sm:p-7 backdrop-blur"><p class="text-2xl sm:text-4xl font-extrabold text-mint">23</p><p class="mt-2 sm:mt-3 text-xs sm:text-base font-semibold text-slate-300">estados representados</p></div>
                         <div class="rounded-2xl sm:rounded-3xl border border-white/15 bg-white/5 p-4 sm:p-7 backdrop-blur"><p class="text-2xl sm:text-4xl font-extrabold text-mint">LATAM</p><p class="mt-2 sm:mt-3 text-xs sm:text-base font-semibold text-slate-300">alcance regional</p></div>
                     </div>
@@ -556,6 +556,52 @@
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             if (window.lucide) lucide.createIcons();
+            // Mismo contador público de registro.movidasst.com; solo retorna un número.
+            // El dato no se calcula a partir de listados de integrantes ni divulga datos personales.
+            const integrantesElement = document.getElementById('contador-integrantes-movida');
+            const integrantesUrl = 'https://lfdmbkzghnwvsapxypvt.supabase.co/rest/v1/rpc/contador_integrantes';
+            const integrantesPublicKey = 'sb_publishable_bRnkA6PA8-v073nrw9zxiQ_8rVGiOn1';
+            let integrantesConsultando = false;
+            async function actualizarContadorIntegrantes() {
+                if (!integrantesElement || integrantesConsultando) return;
+                integrantesConsultando = true;
+                const abort = new AbortController();
+                const timeout = setTimeout(() => abort.abort(), 10000);
+                try {
+                    const response = await fetch(integrantesUrl, {
+                        method: 'POST',
+                        headers: {
+                            'apikey': integrantesPublicKey,
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: '{}',
+                        credentials: 'omit',
+                        cache: 'no-store',
+                        signal: abort.signal
+                    });
+                    if (!response.ok) throw new Error('No se pudo consultar el contador público');
+                    const count = Number(await response.json());
+                    if (!Number.isSafeInteger(count) || count < 0) throw new Error('Contador inválido');
+                    integrantesElement.textContent = new Intl.NumberFormat('es-VE').format(count);
+                    integrantesElement.setAttribute('aria-label', count + ' integrantes registrados');
+                    integrantesElement.title = 'Total de integrantes registrados · Fuente: La Movida de SST+';
+                } catch (error) {
+                    // Mantener un valor conservador en lugar de mostrar cero o un número falso.
+                    console.warn('No disponible temporalmente el contador de integrantes.', error);
+                } finally {
+                    clearTimeout(timeout);
+                    integrantesConsultando = false;
+                }
+            }
+            actualizarContadorIntegrantes();
+            setInterval(() => {
+                if (document.visibilityState === 'visible') actualizarContadorIntegrantes();
+            }, 300000);
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'visible') actualizarContadorIntegrantes();
+            });
+
 
             const menuButton = document.getElementById('menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
