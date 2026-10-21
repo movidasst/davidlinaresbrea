@@ -110,6 +110,16 @@
         @supports (padding-bottom: env(safe-area-inset-bottom)) {
             .mobile-action-bar { padding-bottom: max(.65rem, env(safe-area-inset-bottom)); }
         }
+
+        [data-profile-tab][hidden] { display: none !important; }
+        body { padding-bottom: 106px !important; }
+        .profile-bottom-nav { position:fixed; z-index:90; inset:auto 0 0; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:3px; padding:7px 7px calc(7px + env(safe-area-inset-bottom)); border-top:1px solid #d8e8e8; background:rgba(255,255,255,.97); box-shadow:0 -12px 38px -25px rgba(7,26,43,.5); backdrop-filter:blur(18px); }
+        .profile-bottom-nav button { min-width:0; min-height:60px; border:0; border-radius:13px; background:transparent; padding:5px 2px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; font:800 .67rem/1.2 Manrope,sans-serif; color:#5b6e80; cursor:pointer; }
+        .profile-bottom-nav button svg { width:21px; height:21px; flex-shrink:0; }
+        .profile-bottom-nav button[aria-selected="true"] { color:#006c77; background:#def2ef; }
+        .profile-bottom-nav button:hover { color:#007b85; background:#eef8f6; }
+        @media (min-width:800px) { .profile-bottom-nav { left:50%; right:auto; bottom:14px; transform:translateX(-50%); width:min(calc(100% - 48px),740px); border:1px solid #d8e8e8; border-radius:22px; padding:8px; } .profile-bottom-nav button { font-size:.79rem; min-height:65px; } }
+        @media (max-width:355px) { .profile-bottom-nav { gap:1px; padding-left:3px; padding-right:3px; } .profile-bottom-nav button { font-size:.59rem; } }
     </style>
 
     <script type="application/ld+json">
@@ -224,7 +234,7 @@
     </nav>
 
     <main id="contenido">
-        <section id="inicio" class="relative overflow-hidden bg-ink pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-44 lg:pb-24">
+        <section id="inicio" data-profile-tab="inicio" class="relative overflow-hidden bg-ink pt-28 pb-14 sm:pt-32 sm:pb-16 lg:pt-44 lg:pb-24">
             <div class="absolute inset-0 grid-bg"></div>
             <div class="absolute -top-56 -right-32 h-[580px] w-[580px] rounded-full bg-ocean/25 blur-3xl"></div>
             <div class="absolute -bottom-64 left-1/3 h-[520px] w-[520px] rounded-full bg-mint/10 blur-3xl"></div>
@@ -276,7 +286,7 @@
             </div>
         </section>
 
-        <section aria-label="Indicadores de impacto" class="relative -mt-1 bg-white border-b border-slate-200">
+        <section data-profile-tab="inicio" aria-label="Indicadores de impacto" class="relative -mt-1 bg-white border-b border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 grid grid-cols-2 lg:grid-cols-4">
                 <div class="border-r border-b lg:border-b-0 border-slate-200 px-3 py-6 sm:px-4 sm:py-8 lg:px-8">
                     <p class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink">1.500+</p>
@@ -297,7 +307,7 @@
             </div>
         </section>
 
-        <section id="propuesta" class="py-16 sm:py-20 lg:py-28">
+        <section id="propuesta" data-profile-tab="inicio" class="py-16 sm:py-20 lg:py-28">
             <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8 grid lg:grid-cols-[.75fr_1.25fr] gap-9 sm:gap-12 lg:gap-20">
                 <div>
                     <p class="section-label text-xs font-extrabold uppercase text-ocean">Gerencia de aprendizaje y capacitación</p>
@@ -319,7 +329,7 @@
             </div>
         </section>
 
-        <section id="capacidades" class="bg-mist py-16 sm:py-20 lg:py-28 border-y border-slate-200">
+        <section id="capacidades" data-profile-tab="experiencia" hidden class="bg-mist py-16 sm:py-20 lg:py-28 border-y border-slate-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
                 <div class="max-w-3xl">
                     <p class="section-label text-xs font-extrabold uppercase text-ocean">Capacidades</p>
@@ -362,7 +372,7 @@
             </div>
         </section>
 
-        <section id="resultados" class="py-16 sm:py-20 lg:py-28 bg-white">
+        <section id="resultados" data-profile-tab="experiencia" hidden class="py-16 sm:py-20 lg:py-28 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
                 <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-10 sm:gap-14 lg:gap-24">
                     <div>
@@ -412,7 +422,7 @@
             </div>
         </section>
 
-        <section id="movida" class="relative overflow-hidden bg-ink py-16 sm:py-20 lg:py-28 text-white">
+        <section id="movida" data-profile-tab="movida" hidden class="relative overflow-hidden bg-ink py-16 sm:py-20 lg:py-28 text-white">
             <div class="absolute inset-0 grid-bg opacity-60"></div>
             <div class="relative max-w-7xl mx-auto px-4 sm:px-5 lg:px-8">
                 <div class="grid lg:grid-cols-[1.05fr_.95fr] gap-10 sm:gap-12 lg:gap-20 items-center">
@@ -437,7 +447,7 @@
             </div>
         </section>
 
-        <section class="py-16 sm:py-20 lg:py-28">
+        <section id="contacto" data-profile-tab="experiencia" hidden class="py-16 sm:py-20 lg:py-28">
             <div class="max-w-5xl mx-auto px-4 sm:px-5 lg:px-8 text-center">
                 <p class="section-label text-xs font-extrabold uppercase text-ocean">Próximo desafío</p>
                 <h2 class="mt-4 text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-[-.04em] text-ink">Busco liderar la evolución del aprendizaje en una organización con ambición de crecer.</h2>
@@ -465,14 +475,13 @@
         </div>
     </footer>
 
-    <aside class="mobile-action-bar fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2 border-t border-slate-200 bg-white/95 px-3 pt-2.5 pb-2.5 shadow-[0_-12px_35px_-20px_rgba(7,26,43,.45)] backdrop-blur-xl lg:hidden" aria-label="Acciones de contacto">
-        <a href="mailto:david.linaresb@gmail.com?subject=Oportunidad%20en%20Learning%20%26%20Development" class="tap-target inline-flex items-center justify-center gap-2 rounded-xl bg-ocean px-4 py-3 text-sm font-extrabold text-white">
-            <i data-lucide="mail" class="w-4 h-4" aria-hidden="true"></i> Email
-        </a>
-        <a href="https://www.linkedin.com/in/davidlinaresbrea/" target="_blank" rel="noopener noreferrer" class="tap-target inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-extrabold text-ink">
-            <i data-lucide="linkedin" class="w-4 h-4" aria-hidden="true"></i> LinkedIn
-        </a>
-    </aside>
+    <nav class="profile-bottom-nav" role="tablist" aria-label="Secciones del perfil de David Linares Brea">
+        <button type="button" role="tab" aria-selected="true" aria-controls="inicio" data-tab="inicio"><i data-lucide="house" aria-hidden="true"></i><span>Inicio</span></button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="capacidades" data-tab="experiencia"><i data-lucide="briefcase-business" aria-hidden="true"></i><span>Experiencia</span></button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="mentoria" data-tab="mentoria"><i data-lucide="messages-square" aria-hidden="true"></i><span>Mentoría</span></button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="academia" data-tab="academia"><i data-lucide="graduation-cap" aria-hidden="true"></i><span>Academia</span></button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="movida" data-tab="movida"><i data-lucide="users-round" aria-hidden="true"></i><span>La Movida</span></button>
+    </nav>
 
     <script>
         window.addEventListener('DOMContentLoaded', () => {
