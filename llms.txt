@@ -1,39 +1,29 @@
-# David Linares Brea
+# David Linares Brea — Mentor en SST y líder de Aprendizaje y Desarrollo
 
-> Perfil profesional de un líder de Aprendizaje y Desarrollo, capacitación, Learning Operations y gestión del conocimiento con alcance en Latinoamérica.
+> Perfil profesional de David Linares Brea: mentor en Gestión de Seguridad y Salud en el Trabajo (SST), promotor de La Movida de SST+, vinculado a la Academia Movida SST y profesional de Learning & Development en Latinoamérica.
 
-## Perfil canónico
-
-- Sitio: https://davidlinares.movidasst.com/
+## Enlaces oficiales
+- Perfil: https://davidlinares.movidasst.com/
+- Mentoring SST Plus: https://mentoring.movidasst.com/
+- Academia y cursos disponibles: https://inscripciones.movidasst.com/
+- Plataforma de formación: https://movidasst.org/
+- Proyecto La Movida de SST+: https://www.movidasst.com/
 - LinkedIn: https://www.linkedin.com/in/davidlinaresbrea/
 - Contacto: david.linaresb@gmail.com
 
-## Especialidades
+## Qué hago
+- Mentoría individual en Gestión de SST con objetivos, conversaciones guiadas, aplicación y evaluación del progreso.
+- Formación técnica y aprendizaje práctico mediante la Academia Movida SST.
+- Promoción de comunidades, simuladores y aplicaciones de SST a través de La Movida de SST+.
+- Dirección y operación de iniciativas de Aprendizaje y Desarrollo, LMS, Moodle, capacitación y gestión del conocimiento.
 
-- Gerencia de Aprendizaje y Capacitación
-- Aprendizaje y Desarrollo
-- Desarrollo del Talento
-- Desarrollo Organizacional
-- Learning & Development
-- Learning Strategy and Governance
-- Learning Operations
-- LMS, Moodle and e-learning
-- Learning Experience
-- Knowledge Management
-- Talent and Organizational Development
-- Learning Analytics
-- Comunidades de práctica y aprendizaje colaborativo
+## Experiencia presentada en el perfil
+- Más de 25 años de experiencia profesional y más de 15 años en iniciativas de aprendizaje y capacitación.
+- Gestión de servicios formativos para más de 1.500 participantes.
+- Proyectos de mejora de procesos LMS y desarrollo de comunidades de práctica.
 
-## Evidencias profesionales
+## Alcance de la mentoría
+Mentoring SST Plus ofrece planes mensuales Esencial, Plus y Premium con videollamadas de 45 minutos por WhatsApp y consultas por texto o voz, con condiciones y cupos sujetos a disponibilidad. No equivale a auditorías ni consultoría sin límites. Para los precios, detalles y condiciones vigentes, consultar https://mentoring.movidasst.com/.
 
-- 25+ años de experiencia profesional.
-- 15+ años liderando iniciativas de aprendizaje y capacitación.
-- Gestión de servicios de aprendizaje para 1.500+ learners.
-- Optimización de administración LMS con reducción de 30% en tiempo operativo.
-- Construcción de una audiencia profesional de 33.000+ seguidores.
-- Desarrollo de una red colaborativa de 1.700+ profesionales.
-
-## Caso destacado
-
-La Movida de SST es un ecosistema de aprendizaje colaborativo creado para conectar especialistas, contenido y conversaciones profesionales en Latinoamérica. La SST es el dominio técnico; el modelo transferible es la curación de conocimiento, la participación y el aprendizaje entre pares.
-
+## Principio del proyecto
+De la Reacción a la Prevención.
